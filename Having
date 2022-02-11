@@ -1,0 +1,24 @@
+SELECT
+    lname,
+    fname
+FROM
+         author
+    JOIN bookauthor USING ( authorid )
+WHERE
+    isbn IN (
+        SELECT
+            isbn
+        FROM
+            orderitems
+        GROUP BY
+            isbn
+        HAVING
+            SUM(quantity) = (
+                SELECT
+                    MAX(COUNT(*))
+                FROM
+                    orderitems
+                GROUP BY
+                    isbn
+            )
+    );
