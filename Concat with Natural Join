@@ -1,0 +1,10 @@
+SELECT
+    firstname
+    || ' '
+    || lastname "Customers in Atlanta, GA"
+FROM
+         customers
+    NATURAL JOIN orders
+WHERE
+    ( upper(shipcity) LIKE '%ATLANTA%' )
+    AND ( upper(shipstate) LIKE 'GA' )
