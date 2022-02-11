@@ -1,0 +1,22 @@
+SELECT
+    title,
+    category
+FROM
+    books
+WHERE
+    category IN ( 'COOKING', 'CHILDREN' );
+
+TITLE                            CATEGORY   
+BUILDING A CAR WITH TOOTHPICKS    CHILDREN    
+COOKING WITH MUSHROOMS            COOKING     
+THE WOK WAY TO COOK               COOKING     
+BIG BEAR AND LITTLE DOVE          CHILDREN    
+
+SELECT
+    title,
+    category
+FROM
+    books
+WHERE
+    category = 'COOKING'
+    OR category = 'CHILDREN';
