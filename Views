@@ -1,0 +1,20 @@
+CREATE OR REPLACE VIEW book_authors AS
+    SELECT
+        fname,
+        lname,
+        isbn
+    FROM
+             author
+        JOIN bookauthor USING ( authorid )
+WITH READ ONLY;
+
+View BOOK_AUTHORS created.
+
+SELECT
+    isbn,
+    lname,
+    fname
+FROM
+    book_authors
+WHERE
+    lname = 'WHITE';
